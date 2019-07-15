@@ -1,8 +1,8 @@
-import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, JoinTable, ManyToMany } from 'typeorm';
 import { ConcreteProduct } from 'src/concrete-product/concrete-product.entity';
 
 @Entity()
-export class Product {
+export class ProductDetail {
 
     @PrimaryGeneratedColumn()
     id: number;
@@ -13,7 +13,7 @@ export class Product {
     @Column('text')
     description: string;
 
-    @OneToMany(type => ConcreteProduct, concreteProduct => concreteProduct.product)
+    @ManyToMany(type => ConcreteProduct)
     concreteProducts: ConcreteProduct[];
 
 }

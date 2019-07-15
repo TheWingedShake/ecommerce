@@ -15,6 +15,10 @@ export class ProductService {
         return await this.productRepository.find();
     }
 
+    async findOne(id: number): Promise<Product> {
+        return await this.productRepository.findOne(id);
+    }
+
     async create(product: Product): Promise<Product> {
         return await this.productRepository.save(product);
     }
