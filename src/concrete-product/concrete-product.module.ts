@@ -3,7 +3,6 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConcreteProduct } from './concrete-product.entity';
 import { ConcreteProductService } from './concrete-product.service';
 import { ConcreteProductController } from './concrete-product.controller';
-import { ProductService } from 'src/product/product.service';
 import { ProductModule } from 'src/product/product.module';
 import { ProductDetailModule } from 'src/product-detail/product-detail.module';
 
