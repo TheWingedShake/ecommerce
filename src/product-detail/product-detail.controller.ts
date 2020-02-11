@@ -9,7 +9,7 @@ export class ProductDetailController {
 
     @Get('product-detail')
     getProductDetail(): Promise<ProductDetail[]> {
-        return this.productDetailService.findAll();
+        return this.productDetailService.findAll({relations: ['productDetailItems']});
     }
 
     @Post('product-detail')

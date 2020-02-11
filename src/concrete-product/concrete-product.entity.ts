@@ -1,6 +1,6 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, ManyToMany, JoinTable } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, ManyToMany } from 'typeorm';
 import { Product } from 'src/product/product.entity';
-import { ProductDetail } from 'src/product-detail/product-detail.entity';
+import { ProductDetailItem } from 'src/product-detail-item/product-detail-item.entity';
 
 @Entity()
 export class ConcreteProduct {
@@ -19,12 +19,7 @@ export class ConcreteProduct {
 
     productId: number;
 
-    @ManyToMany(type => ProductDetail)
-    @JoinTable({
-        name: 'concrete_product_product_details_product_detail',
-        joinColumn: { name: 'concreteProductId', referencedColumnName: 'id'},
-        inverseJoinColumn: { name: 'productDetailId', referencedColumnName: 'id'},
-    })
-    productDetails: ProductDetail[];
+    @ManyToMany(type => ProductDetailItem)
+    productDetailItems: ProductDetailItem[];
 
 }

@@ -1,5 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column, JoinTable, ManyToMany } from 'typeorm';
-import { ConcreteProduct } from 'src/concrete-product/concrete-product.entity';
+import { Entity, PrimaryGeneratedColumn, Column,  OneToMany } from 'typeorm';
+import { ProductDetailItem } from 'src/product-detail-item/product-detail-item.entity';
 
 @Entity()
 export class ProductDetail {
@@ -13,7 +13,7 @@ export class ProductDetail {
     @Column('text')
     description: string;
 
-    @ManyToMany(type => ConcreteProduct)
-    concreteProducts: ConcreteProduct[];
+    @OneToMany(type => ProductDetailItem, productDetailItem => productDetailItem.productDetail)
+    productDetailItems: ProductDetailItem[];
 
 }

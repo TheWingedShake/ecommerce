@@ -23,8 +23,8 @@ export class ConcreteProductService {
         return this.concreteProductRepository.save(concreteProduct);
     }
 
-    async update(concreteProduct: ConcreteProduct): Promise<UpdateResult> {
-        return this.concreteProductRepository.update(concreteProduct.id, concreteProduct);
+    async update(concreteProduct: ConcreteProduct): Promise<ConcreteProduct> {
+        return this.concreteProductRepository.save(concreteProduct);
     }
 
     async delete(id): Promise<DeleteResult> {

@@ -27,15 +27,6 @@ export class ConcreteProductController {
 
     @Put('concrete-product')
     async editConcreteProduct(@Body() concreteProductData: ConcreteProduct): Promise<any> {
-        console.log(concreteProductData);
-        if (concreteProductData.productDetails.length) {
-            const where = [];
-            concreteProductData.productDetails.forEach(item => {
-                where.push({id: item.id});
-            });
-            const productDetails = await this.productDetailService.findAll({where});
-            concreteProductData.productDetails = productDetails;
-        }
         await this.concreteProductService.update(concreteProductData);
         return this.concreteProductService.findOne(concreteProductData.id, {relations: ['product', 'productDetails']});
     }
