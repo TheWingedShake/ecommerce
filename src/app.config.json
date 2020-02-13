@@ -2,5 +2,5 @@
     "dbName": "ecommerce",
     "dbUser": "postgres",
     "dbPassword": "postgres",
-    "dbPort": "5433"
+    "dbPort": "5432"
 }

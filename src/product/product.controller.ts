@@ -1,6 +1,9 @@
 import { Controller, Get, Post, Body, Delete, Param, Put } from '@nestjs/common';
 import { ProductService } from './product.service';
 import { Product } from './product.entity';
+import { testCreator } from './patterns/factory-method';
+import { testAbstractFactory } from './patterns/abstract-factory';
+import { testBuilder } from './patterns/builder';
 
 @Controller()
 export class ProductController {
@@ -12,7 +15,7 @@ export class ProductController {
         return this.productService.findAll();
     }
 
-    @Get('product/:id')
+    @Get('product/:id(\d+)')
     getProductById(): string {
         return 'id';
     }
@@ -30,6 +33,12 @@ export class ProductController {
     @Delete('product')
     async deleteProduct(@Body() productData: Product): Promise<any> {
         return this.productService.delete(productData.id);
+    }
+
+    @Get('product/pattern')
+    async getPattern() {
+        testBuilder();
+        return 'creator';
     }
 
 }

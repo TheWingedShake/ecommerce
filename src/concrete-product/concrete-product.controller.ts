@@ -1,9 +1,9 @@
 import { Controller, Get, Body, Post, Delete, Put } from '@nestjs/common';
 import { ConcreteProductService } from './concrete-product.service';
 import { ConcreteProduct } from './concrete-product.entity';
-import { ProductService } from 'src/product/product.service';
-import { ProductDetail } from 'src/product-detail/product-detail.entity';
-import { ProductDetailService } from 'src/product-detail/product-detail.service';
+import { ProductService } from '../product/product.service';
+import { ProductDetail } from '../product-detail/product-detail.entity';
+import { ProductDetailService } from '../product-detail/product-detail.service';
 
 @Controller()
 export class ConcreteProductController {
